@@ -28,10 +28,10 @@ Follow these steps carefully to ensure proper setup of both the backend and fron
         
         CREATE PROCEDURE dbo.sp_SearchEmployees
             @searchPattern NVARCHAR(100)
-        AS\
-        BEGIN\
-            SET NOCOUNT ON;\
-            SELECT EmployeeId, FirstName, LastName, MiddleName, Email, Address, PhoneNumber, Salary, Status, Gender\
+        AS
+        BEGIN
+            SET NOCOUNT ON;
+            SELECT EmployeeId, FirstName, LastName, MiddleName, Email, Address, PhoneNumber, Salary, Status, Gender
             FROM dbo.Employees
             WHERE LOWER(CONCAT(
                 COALESCE(FirstName, ''),
