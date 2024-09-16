@@ -50,7 +50,9 @@ Follow these steps carefully to ensure proper setup of both the backend and fron
 
 7. Navigate to the "employee-list-app.UI" folder.
 8. Open a terminal in this folder.
-9. Run the following command to start the Angular development server: "ng serve"
+9. Run the following command to start the Angular development server:\
+   "npm install"\
+   "ng serve"
 
 Access the application by opening a web browser and navigating to http://localhost:4200 (or the URL provided in the terminal).
 
