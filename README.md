@@ -20,7 +20,7 @@ Follow these steps carefully to ensure proper setup of both the backend and fron
 5. Set up the stored procedure:\
     a. Open SQL Server Management Studio.\
     b. Connect to your database.\
-    c. Execute the following SQL script to create the stored procedure:\
+    c. Execute the following SQL script to create the stored procedure:
     
     USE EmployeeDb;\
     GO
