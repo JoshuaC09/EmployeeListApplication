@@ -8,6 +8,7 @@ Follow these steps carefully to ensure proper setup of both the backend and fron
 2. Navigate to the "Employee.List.App.Client" folder.
 3. Open the "EmployeeListApp.Client.sln" solution in Visual Studio.
 4. Set up the database:
+   
     a. In Visual Studio, go to Tools > NuGet Package Manager > Package Manager Console.
     b. Change the default project to "EmployeeListApp.DataAccess".
     c. Run the following commands:
