@@ -11,8 +11,8 @@ Follow these steps carefully to ensure proper setup of both the backend and fron
     a. In Visual Studio, go to Tools > NuGet Package Manager > Package Manager Console.\
     b. Change the default project to "EmployeeListApp.DataAccess".\
     c. Run the following commands:\
-    "Add-Migration InitialMigration"\
-    "Update-Database"
+        "Add-Migration InitialMigration"\
+        "Update-Database"
    
     Note: If you encounter issues, try this alternative command:\
     "Add-Migration InitialMigration -Project EmployeeListApp.DataAccess"\
@@ -22,27 +22,26 @@ Follow these steps carefully to ensure proper setup of both the backend and fron
     a. Open SQL Server Management Studio.\
     b. Connect to your database.\
     c. Execute the following SQL script to create the stored procedure:
-    
-    "USE EmployeeDb;\
-    GO
-    
-    CREATE PROCEDURE dbo.sp_SearchEmployees\
-        @searchPattern NVARCHAR(100)\
-    AS\
-    BEGIN\
-        SET NOCOUNT ON;\
-        SELECT EmployeeId, FirstName, LastName, MiddleName, Email, Address, PhoneNumber, Salary, Status, Gender\
-        FROM dbo.Employees\
-        WHERE LOWER(CONCAT(\
-            COALESCE(FirstName, ''),\
-            COALESCE(LastName, ''),\
-            COALESCE(MiddleName, ''),\
-            COALESCE(Email, ''),\
-            COALESCE(Address, ''),\
-            COALESCE(PhoneNumber, '')\
-        )) LIKE '%' + LOWER(@searchPattern) + '%'\
-        ORDER BY LastName, FirstName;\
-    END"
+        "USE EmployeeDb;\
+        GO
+        
+        CREATE PROCEDURE dbo.sp_SearchEmployees\
+            @searchPattern NVARCHAR(100)\
+        AS\
+        BEGIN\
+            SET NOCOUNT ON;\
+            SELECT EmployeeId, FirstName, LastName, MiddleName, Email, Address, PhoneNumber, Salary, Status, Gender\
+            FROM dbo.Employees\
+            WHERE LOWER(CONCAT(\
+                COALESCE(FirstName, ''),\
+                COALESCE(LastName, ''),\
+                COALESCE(MiddleName, ''),\
+                COALESCE(Email, ''),\
+                COALESCE(Address, ''),\
+                COALESCE(PhoneNumber, '')\
+            )) LIKE '%' + LOWER(@searchPattern) + '%'\
+            ORDER BY LastName, FirstName;\
+        END"
 
 7. Run the "EmployeeListApp.Client" project in Visual Studio.
 
