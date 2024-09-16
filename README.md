@@ -23,25 +23,25 @@ Follow these steps carefully to ensure proper setup of both the backend and fron
     b. Connect to your database.\
     c. Execute the following SQL script to create the stored procedure:
    
-        USE EmployeeDb;\
+        USE EmployeeDb;
         GO
         
-        CREATE PROCEDURE dbo.sp_SearchEmployees\
-            @searchPattern NVARCHAR(100)\
+        CREATE PROCEDURE dbo.sp_SearchEmployees
+            @searchPattern NVARCHAR(100)
         AS\
         BEGIN\
             SET NOCOUNT ON;\
             SELECT EmployeeId, FirstName, LastName, MiddleName, Email, Address, PhoneNumber, Salary, Status, Gender\
-            FROM dbo.Employees\
-            WHERE LOWER(CONCAT(\
-                COALESCE(FirstName, ''),\
-                COALESCE(LastName, ''),\
-                COALESCE(MiddleName, ''),\
-                COALESCE(Email, ''),\
-                COALESCE(Address, ''),\
-                COALESCE(PhoneNumber, '')\
-            )) LIKE '%' + LOWER(@searchPattern) + '%'\
-            ORDER BY LastName, FirstName;\
+            FROM dbo.Employees
+            WHERE LOWER(CONCAT(
+                COALESCE(FirstName, ''),
+                COALESCE(LastName, ''),
+                COALESCE(MiddleName, ''),
+                COALESCE(Email, ''),
+                COALESCE(Address, ''),
+                COALESCE(PhoneNumber, '')
+            )) LIKE '%' + LOWER(@searchPattern) + '%'
+            ORDER BY LastName, FirstName;
         END
 
 8. Run the "EmployeeListApp.Client" project in Visual Studio.
