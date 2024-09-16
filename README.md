@@ -15,9 +15,10 @@ Follow these steps carefully to ensure proper setup of both the backend and fron
     "Update-Database"
    
     Note: If you encounter issues, try this alternative command:\
-    "Add-Migration InitialMigration -Project EmployeeListApp.DataAccess"
+    "Add-Migration InitialMigration -Project EmployeeListApp.DataAccess"\
+    "Update-Database"
 
-5. Set up the stored procedure:\
+6. Set up the stored procedure:\
     a. Open SQL Server Management Studio.\
     b. Connect to your database.\
     c. Execute the following SQL script to create the stored procedure:
@@ -43,7 +44,7 @@ Follow these steps carefully to ensure proper setup of both the backend and fron
         ORDER BY LastName, FirstName;\
     END
 
-6. Run the "EmployeeListApp.Client" project in Visual Studio.
+7. Run the "EmployeeListApp.Client" project in Visual Studio.
 
 **Frontend Setup**
 
