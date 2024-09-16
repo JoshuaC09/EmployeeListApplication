@@ -7,41 +7,40 @@ Follow these steps carefully to ensure proper setup of both the backend and fron
 1. Clone the repository to your local machine.
 2. Navigate to the "Employee.List.App.Client" folder.
 3. Open the "EmployeeListApp.Client.sln" solution in Visual Studio.
-4. Set up the database:
+4. Set up the database:\
+    a. In Visual Studio, go to Tools > NuGet Package Manager > Package Manager Console.\
+    b. Change the default project to "EmployeeListApp.DataAccess".\
+    c. Run the following commands:\
+    "Add-Migration InitialMigration"\
+    "Update-Database"\
    
-    a. In Visual Studio, go to Tools > NuGet Package Manager > Package Manager Console.
-    b. Change the default project to "EmployeeListApp.DataAccess".
-    c. Run the following commands:
-    "Add-Migration InitialMigration"
-    "Update-Database"
-   
-    Note: If you encounter issues, try this alternative command:
-    "Add-Migration InitialMigration -Project EmployeeListApp.DataAccess"
+    Note: If you encounter issues, try this alternative command:\
+    "Add-Migration InitialMigration -Project EmployeeListApp.DataAccess"\
 
-5. Set up the stored procedure:
-    a. Open SQL Server Management Studio.
-    b. Connect to your database.
-    c. Execute the following SQL script to create the stored procedure:
+5. Set up the stored procedure:\
+    a. Open SQL Server Management Studio.\
+    b. Connect to your database.\
+    c. Execute the following SQL script to create the stored procedure:\
     
-    USE EmployeeDb;
-    GO
+    USE EmployeeDb;\
+    GO\
     
-    CREATE PROCEDURE dbo.sp_SearchEmployees
-        @searchPattern NVARCHAR(100)
-    AS
-    BEGIN
-        SET NOCOUNT ON;
-        SELECT EmployeeId, FirstName, LastName, MiddleName, Email, Address, PhoneNumber, Salary, Status, Gender
-        FROM dbo.Employees
-        WHERE LOWER(CONCAT(
-            COALESCE(FirstName, ''),
-            COALESCE(LastName, ''),
-            COALESCE(MiddleName, ''),
-            COALESCE(Email, ''),
-            COALESCE(Address, ''),
-            COALESCE(PhoneNumber, '')
-        )) LIKE '%' + LOWER(@searchPattern) + '%'
-        ORDER BY LastName, FirstName;
+    CREATE PROCEDURE dbo.sp_SearchEmployees\
+        @searchPattern NVARCHAR(100)\
+    AS\
+    BEGIN\
+        SET NOCOUNT ON;\
+        SELECT EmployeeId, FirstName, LastName, MiddleName, Email, Address, PhoneNumber, Salary, Status, Gender\
+        FROM dbo.Employees\
+        WHERE LOWER(CONCAT(\
+            COALESCE(FirstName, ''),\
+            COALESCE(LastName, ''),\
+            COALESCE(MiddleName, ''),\
+            COALESCE(Email, ''),\
+            COALESCE(Address, ''),\
+            COALESCE(PhoneNumber, '')\
+        )) LIKE '%' + LOWER(@searchPattern) + '%'\
+        ORDER BY LastName, FirstName;\
     END
 
 6. Run the "EmployeeListApp.Client" project in Visual Studio.
