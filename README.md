@@ -12,10 +12,10 @@ Follow these steps carefully to ensure proper setup of both the backend and fron
     b. Change the default project to "EmployeeListApp.DataAccess".\
     c. Run the following commands:\
     "Add-Migration InitialMigration"\
-    "Update-Database"\
+    "Update-Database"
    
     Note: If you encounter issues, try this alternative command:\
-    "Add-Migration InitialMigration -Project EmployeeListApp.DataAccess"\
+    "Add-Migration InitialMigration -Project EmployeeListApp.DataAccess"
 
 5. Set up the stored procedure:\
     a. Open SQL Server Management Studio.\
@@ -23,7 +23,7 @@ Follow these steps carefully to ensure proper setup of both the backend and fron
     c. Execute the following SQL script to create the stored procedure:\
     
     USE EmployeeDb;\
-    GO\
+    GO
     
     CREATE PROCEDURE dbo.sp_SearchEmployees\
         @searchPattern NVARCHAR(100)\
