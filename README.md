@@ -22,6 +22,7 @@ Follow these steps carefully to ensure proper setup of both the backend and fron
     a. Open SQL Server Management Studio.\
     b. Connect to your database.\
     c. Execute the following SQL script to create the stored procedure:
+   
         "USE EmployeeDb;\
         GO
         
@@ -43,7 +44,7 @@ Follow these steps carefully to ensure proper setup of both the backend and fron
             ORDER BY LastName, FirstName;\
         END"
 
-7. Run the "EmployeeListApp.Client" project in Visual Studio.
+8. Run the "EmployeeListApp.Client" project in Visual Studio.
 
 **Frontend Setup**
 
